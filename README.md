@@ -82,7 +82,7 @@ export const i18n = createI18n(runtime);
 5. 최상단 레이아웃을 <ParaglideJS /> 컴포넌트로 감싸기
 ``` ts
 <script>
-	import { i18n } from '$lib/i18n.js';
+	import { i18n } from '$lib/i18n';
 	import { ParaglideJS } from '@inlang/paraglide-js-adapter-sveltekit';
 </script>
 
@@ -186,7 +186,7 @@ export const handle = i18n.handle();
 
 ```
 
-9. 이렇게 매뉴얼하게 만들기 싫다면 [익스텐션](https://inlang.com/m/dxnzrydw/library-inlang-paraglideJsAdapterSvelteKit#1-add-the-vite-plugin) 사용하기
+9. 이렇게 매뉴얼하게 만들기 싫다면 [익스텐션](https://inlang.com/m/r7kp499g/app-inlang-ideExtension) 사용하기 (권장)
 
 10. 익스텐션 설치 후 `cmd + shift + p` - `Developer: Reload Window` 하면 셜록 얼굴 아이콘 나옴
 
