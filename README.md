@@ -11,7 +11,7 @@
 ## paraglide js
 1. inlang/paraglide-js 설치
 ```
-pnpm i -D @inlang/paraglide-js-adapter-sveltekit
+pnpx @inlang/paraglide-js@latest init
 ```
 2. inlang/paraglide-js-adapter-sveltekit 설치 & vite.config.ts 환경 설정
 ```
