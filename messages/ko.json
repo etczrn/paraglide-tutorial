@@ -1,4 +1,5 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"greetings": "{name}, SvelteKit에 오신 걸 환영합니다!"
+	"greetings": "{name}, SvelteKit에 오신 걸 환영합니다!",
+	"bye": "안녕히 계세요!"
 }
