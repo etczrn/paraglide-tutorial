@@ -57,5 +57,7 @@
 		--leading-normal: 1.5;
 
 		--tracking-tighter: -0.05em;
+
+		--max-w-screen-2xl: 96rem;
 	}
 </style>
