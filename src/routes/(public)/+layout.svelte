@@ -45,6 +45,18 @@
 		--font-medium: 500;
 		--font-bold: 700;
 
+		--text-xxs: 0.625rem; /* 10px */
+		--text-xs: 0.75rem; /* 12px */
+		--text-sm: 0.8125rem; /* 13px */
+		--text-md: 0.9375rem; /* 15px */
+		--text-lg: 1rem; /* 16px */
+		--text-xl: 1.0625rem; /* 17px */
+		--text-xxl: 1.25rem; /* 20px */
+		--text-2xl: 1.5rem; /* 24px */
+		--text-3xl: 2rem; /* 32px */
+		--text-4xl: 2.625rem; /* 42px */
+		--text-5xl: 5rem; /* 80px */
+
 		--color-primary: #3c41be;
 		--color-secondary: #f1f1f1;
 		--color-accent: #0a39c3;
@@ -58,6 +70,6 @@
 
 		--tracking-tighter: -0.05em;
 
-		--max-w-screen-2xl: 96rem;
+		--max-w-screen-2xl: 96rem; /* 1536px */
 	}
 </style>
