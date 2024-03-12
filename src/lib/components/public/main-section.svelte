@@ -82,7 +82,7 @@
 		max-width: var(--max-w-screen-2xl);
 		display: grid;
 		margin: 0 auto;
-		padding: 1.75em 2.25em;
+		padding: 1.75em 2.25rem;
 		grid-template-columns: minmax(22.5rem, 3.5fr) 6.5fr;
 		grid-template-areas:
 			'title sub-title carousel-buttons'
@@ -98,7 +98,7 @@
 				'sub-title carousel-buttons'
 				'link ...'
 				'carousel carousel';
-			padding: 1.25em 1.5em;
+			padding: 1.25em 1.5rem;
 			max-width: var(--max-w-prose);
 		}
 	}
@@ -179,7 +179,7 @@
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: clamp(var(--min-size), 100%, var(--max-size));
-		gap: 0.75em;
+		gap: 0.75rem;
 	}
 
 	@media (width <= 48rem) {

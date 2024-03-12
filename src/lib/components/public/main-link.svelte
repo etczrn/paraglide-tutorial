@@ -25,7 +25,7 @@
 		padding: 0.375rem 0.5rem 0.375rem 0.75rem;
 		background-color: var(--color-gray-light);
 		max-width: fit-content;
-		border-radius: 0.625em;
+		border-radius: 0.625rem;
 		cursor: pointer;
 		display: inline-flex;
 		align-items: center;
