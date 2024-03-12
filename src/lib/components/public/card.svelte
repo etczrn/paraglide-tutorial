@@ -8,7 +8,7 @@
 <article class="card">
 	<img src={thumbnail} alt={title} class="card-image" />
 	<p class="category">Research</p>
-	{#if tags}
+	{#if tags.length > 0}
 		<div class="tags">
 			{#each tags as tag}
 				<span class="tag">{tag}</span>
@@ -71,6 +71,7 @@
 	.card .tags {
 		display: flex;
 		gap: 0.5rem;
+		flex-wrap: wrap;
 	}
 
 	@media (max-width: 48rem) {

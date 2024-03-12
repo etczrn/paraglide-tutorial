@@ -14,6 +14,8 @@
 	export let articles: Article[];
 
 	let emblaApi: EmblaCarouselType;
+	let prveButtonDisabled: boolean = true;
+	let nextButtonDisabled: boolean = false;
 
 	const handleInit = (event: CustomEvent<EmblaCarouselType>) => {
 		emblaApi = event.detail;
@@ -22,11 +24,19 @@
 	const handlePrev = () => {
 		if (!emblaApi) return;
 		emblaApi.scrollPrev();
+		handleDisabled();
 	};
 
 	const handleNext = () => {
 		if (!emblaApi) return;
 		emblaApi.scrollNext();
+		handleDisabled();
+	};
+
+	const handleDisabled = () => {
+		if (!emblaApi) return;
+		prveButtonDisabled = !emblaApi.canScrollPrev();
+		nextButtonDisabled = !emblaApi.canScrollNext();
 	};
 </script>
 
@@ -37,18 +47,20 @@
 		{linkText}
 	</MainLink>
 	<div class="carousel-buttons">
-		<button on:click={handlePrev}>
+		<button on:click={handlePrev} disabled={prveButtonDisabled}>
 			<Icon
 				icon="material-symbols-light:arrow-circle-left-outline"
 				width={'100%'}
 				height={'100%'}
+				{...prveButtonDisabled && { color: 'var(--color-text-primary)', style: 'opacity: 0.5' }}
 			/>
 		</button>
-		<button on:click={handleNext}>
+		<button on:click={handleNext} disabled={nextButtonDisabled}>
 			<Icon
 				icon="material-symbols-light:arrow-circle-right-outline"
 				width={'100%'}
 				height={'100%'}
+				{...nextButtonDisabled && { color: 'var(--color-text-primary)', style: 'opacity: 0.5' }}
 			/>
 		</button>
 	</div>
@@ -102,6 +114,7 @@
 		.research > h1 {
 			font-size: var(--text-6xl);
 			margin: 0;
+			margin-bottom: 3.125rem;
 		}
 	}
 
@@ -149,6 +162,13 @@
 		--max-size: 22.5rem; /* 360px */
 		--min-size: 21.24rem /* 340px */;
 		grid-area: carousel;
+		margin-top: 3.125rem;
+	}
+
+	@media (width <= 48rem) {
+		.research .carousel {
+			margin-top: 3.75rem;
+		}
 	}
 
 	.embla {
