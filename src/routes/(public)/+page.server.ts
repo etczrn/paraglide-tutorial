@@ -1,3 +1,4 @@
+import type { Article } from '$lib/models/public/article';
 import { type AvailableLanguageTag } from '$paraglide/runtime';
 import type { PageServerLoad } from './$types';
 
@@ -9,15 +10,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 		research: research[lang as AvailableLanguageTag],
 		insights: insights[lang as AvailableLanguageTag]
 	};
-};
-
-type Article = {
-	id: number;
-	thumbnail: string;
-	tags: string[];
-	title: string;
-	description?: string;
-	postedOn: string;
 };
 
 const thumbnail = 'https://source.unsplash.com/random';
