@@ -14,6 +14,13 @@
 	linkText="See all Research"
 	articles={research}
 />
+<MainSection
+	title="Insights"
+	subtitle="New Insights"
+	link="/insights"
+	linkText="See all insights"
+	articles={insights}
+/>
 
 <section class="insights"></section>
 

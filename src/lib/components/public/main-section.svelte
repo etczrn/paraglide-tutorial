@@ -71,24 +71,52 @@
 		display: grid;
 		margin: 0 auto;
 		padding: 1.75em 2.25em;
-		grid-template-columns: 3.5fr 6.5fr;
+		grid-template-columns: minmax(22.5rem, 3.5fr) 6.5fr;
 		grid-template-areas:
 			'title sub-title carousel-buttons'
 			'..... link .....'
 			'..... carousel carousel';
 	}
 
+	@media (width <= 48rem) {
+		.research {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				'title title'
+				'sub-title carousel-buttons'
+				'link ...'
+				'carousel carousel';
+			padding: 1.25em 1.5em;
+			max-width: var(--max-w-prose);
+		}
+	}
+
 	.research > h1 {
 		grid-area: title;
-		font-size: var(--text-5xl);
+		font-size: var(--text-7xl);
 		margin-right: 2.25rem;
 		letter-spacing: var(--tracking-tighter);
 	}
 
+	@media (width <= 48rem) {
+		.research > h1 {
+			font-size: var(--text-6xl);
+			margin: 0;
+		}
+	}
+
 	.research > h2 {
 		grid-area: sub-title;
-		font-size: var(--text-4xl);
+		font-size: var(--text-5xl);
 		align-self: center;
+		letter-spacing: var(--tracking-tighter);
+	}
+
+	@media (width <= 48rem) {
+		.research > h2 {
+			font-size: var(--text-3xl);
+			margin-bottom: 1rem;
+		}
 	}
 
 	.research .carousel-buttons {
@@ -99,13 +127,27 @@
 		align-self: center;
 	}
 
+	@media (width <= 48rem) {
+		.research .carousel-buttons {
+			height: 1.875rem;
+			margin-bottom: 1.1875rem;
+		}
+	}
+
 	.research .carousel-buttons button {
 		width: 2.5rem;
 		aspect-ratio: 1;
 	}
 
+	@media (width <= 48rem) {
+		.research .carousel-buttons button {
+			width: 1.875rem;
+		}
+	}
+
 	.research .carousel {
-		--size: 22.5rem;
+		--max-size: 22.5rem; /* 360px */
+		--min-size: 21.24rem /* 340px */;
 		grid-area: carousel;
 	}
 
@@ -116,8 +158,14 @@
 	.embla-container {
 		display: grid;
 		grid-auto-flow: column;
-		grid-auto-columns: var(--size);
+		grid-auto-columns: clamp(var(--min-size), 100%, var(--max-size));
 		gap: 0.75em;
+	}
+
+	@media (width <= 48rem) {
+		.embla-container {
+			grid-auto-columns: 100%;
+		}
 	}
 
 	.embla-slide {

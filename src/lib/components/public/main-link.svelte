@@ -32,4 +32,11 @@
 		align-items: center;
 		gap: 0.25rem;
 	}
+
+	/* TODO: margin bottom 을 외부에서 주입하도록 바꾸기 - 동일한 디자인인데 mb 없는 컴포넌트도 있음 */
+	@media (max-width: 48rem) {
+		.link {
+			font-size: var(--text-md);
+		}
+	}
 </style>

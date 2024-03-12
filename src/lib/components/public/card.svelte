@@ -34,11 +34,23 @@
 		gap: 0.875rem;
 	}
 
+	@media (max-width: 48rem) {
+		.card {
+			gap: 1rem;
+		}
+	}
+
 	.card .card-image {
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		object-fit: cover;
 		border-radius: 0.9375rem;
+	}
+
+	@media (max-width: 48rem) {
+		.card .card-image {
+			border-radius: 0.625rem;
+		}
 	}
 
 	.card .category {
@@ -61,12 +73,27 @@
 		gap: 0.5rem;
 	}
 
+	@media (max-width: 48rem) {
+		.card .tags {
+			gap: 0.375rem;
+		}
+	}
+
 	.card .tags .tag {
 		padding: 0.1875rem 0.376rem 0.25rem 0.376rem;
 		background-color: var(--color-accent);
 		border-radius: 0.375rem;
 		color: var(--color-white);
 		font-size: var(--text-sm);
+		height: fit-content;
+		min-width: fit-content;
+	}
+
+	@media (max-width: 48rem) {
+		.card .tags .tag {
+			font-size: var(--text-sm);
+			padding: 0.125rem 0.3125rem 0.1875rem 0.3125rem;
+		}
 	}
 
 	.card .title {
@@ -75,11 +102,24 @@
 		letter-spacing: var(--tracking-tighter);
 	}
 
+	@media (max-width: 48rem) {
+		.card .title {
+			font-size: var(--text-xl);
+			padding-right: 0;
+		}
+	}
+
 	.card .description {
 		font-size: var(--text-md);
 		letter-spacing: var(--tracking-tighter);
 		opacity: 0.5;
 		font-weight: var(--font-medium);
+	}
+
+	@media (max-width: 48rem) {
+		.card .description {
+			font-size: var(--text-sm);
+		}
 	}
 
 	.card .posted-on {
