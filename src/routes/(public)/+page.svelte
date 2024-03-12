@@ -1,4 +1,5 @@
 <script>
+	import whatWeDo from '$lib/assets/public/what-we-do.png?enhanced';
 	import whoWeAre from '$lib/assets/public/who-we-are.png?enhanced';
 	import MainLink from '$lib/components/public/main-link.svelte';
 	import MainSection from '$lib/components/public/main-section.svelte';
@@ -53,6 +54,7 @@
 			<MainLink href="/what-we-do">See More</MainLink>
 		</svelte:fragment>
 	</MainSplit>
+	<enhanced:img src={whatWeDo} alt="background image for what we do section" />
 </section>
 
 <section class="our-people"></section>
@@ -66,7 +68,8 @@
 		padding-bottom: clamp(10rem, 20vw, 21.875rem);
 	}
 
-	.who-we-are p {
+	.who-we-are p,
+	.what-we-do p {
 		margin-bottom: 1.16rem;
 	}
 
@@ -100,5 +103,10 @@
 			width: 100%;
 			object-fit: cover;
 		}
+	}
+
+	.what-we-do {
+		padding-top: clamp(4.375rem, 5vw, 13.25rem);
+		position: relative;
 	}
 </style>
