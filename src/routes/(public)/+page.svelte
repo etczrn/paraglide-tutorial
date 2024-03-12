@@ -1,4 +1,5 @@
 <script>
+	import MainLink from '$lib/components/public/main-link.svelte';
 	import MainSection from '$lib/components/public/main-section.svelte';
 
 	export let data;
@@ -35,18 +36,25 @@
 	</div>
 </section>
 
-<section class="what-we-do"></section>
+<section class="what-we-do">
+	<div class="split-layout">
+		<h1>What we do</h1>
+		<div class="description">
+			<p>
+				Solutions for Our Climate works towarda society that protects people from the dangers of
+				climate change.
+			</p>
+			<MainLink href="/what-we-do">See More</MainLink>
+		</div>
+	</div>
+</section>
 
 <section class="our-people"></section>
 
 <section class="newsletter"></section>
 
 <style>
-	.who-we-are {
-		background-color: var(--color-gray-light);
-	}
-
-	.who-we-are .split-layout {
+	.split-layout {
 		max-width: var(--max-w-screen-2xl);
 		margin-inline: auto;
 		display: grid;
@@ -57,7 +65,7 @@
 	}
 
 	@media (width <= 48rem) {
-		.who-we-are .split-layout {
+		.split-layout {
 			grid-template-columns: 1fr;
 			grid-template-areas: 'title' 'description';
 			padding: 1.5rem;
@@ -101,5 +109,9 @@
 		.split-layout .description p {
 			margin-bottom: 1.5rem;
 		}
+	}
+
+	.who-we-are {
+		background-color: var(--color-gray-light);
 	}
 </style>
