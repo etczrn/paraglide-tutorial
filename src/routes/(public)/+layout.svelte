@@ -58,7 +58,6 @@
 		--text-5xl: 2.625rem; /* 42px */
 		--text-6xl: 3.125rem; /* 50px */
 		--text-7xl: 5rem; /* 80px */
-
 		--color-primary: #3c41be;
 		--color-secondary: #f1f1f1;
 		--color-accent: #0a39c3;
@@ -70,9 +69,10 @@
 		--leading-snug: 1.3;
 		--leading-normal: 1.5;
 
-		--tracking-tighter: -0.05em;
-
+		--tracking-tighter: -0.05rem;
+		--tracking-tight: -0.03rem;
 		--max-w-prose: 65ch;
+		--max-w-ch-sm: 45ch;
 		--max-w-screen-md: 48rem; /* 768px */
 		--max-w-screen-2xl: 96rem; /* 1536px */
 	}
