@@ -1,6 +1,8 @@
 <script>
+	import whoWeAre from '$lib/assets/public/who-we-are.png?enhanced';
 	import MainLink from '$lib/components/public/main-link.svelte';
 	import MainSection from '$lib/components/public/main-section.svelte';
+	import MainSplit from '$lib/components/public/main-split.svelte';
 
 	export let data;
 	const { research, insights } = data;
@@ -22,17 +24,19 @@
 	linkText="See all insights"
 	articles={insights}
 />
-
 <section class="who-we-are">
-	<div class="split-layout">
-		<h1>Who we are</h1>
-		<div class="description">
+	<MainSplit>
+		<h1 slot="title">Who we are</h1>
+		<svelte:fragment slot="paragraph">
 			<p>
 				We research the biggest sources of greenhouse gas emissions in Asia, and bring together
 				people to make ideas and actions happen.
 			</p>
 			<p>Our goal is a just and equitable world where both people and planet thrive.</p>
-		</div>
+		</svelte:fragment>
+	</MainSplit>
+	<div class="overlay-image">
+		<enhanced:img src={whoWeAre} alt="image for who we are section" />
 	</div>
 </section>
 
@@ -61,7 +65,7 @@
 		grid-template-columns: minmax(22.5rem, 1fr) 1fr;
 		grid-template-areas: 'title description';
 		padding: 2.3125em 2.25rem;
-		min-height: 36.875rem;
+		/* min-height: 36.875rem; */
 	}
 
 	@media (width <= 48rem) {
@@ -78,6 +82,7 @@
 		grid-area: title;
 		font-size: var(--text-7xl);
 		letter-spacing: var(--tracking-tighter);
+		margin-right: 2.25rem;
 	}
 
 	@media (width <= 48rem) {
@@ -113,5 +118,43 @@
 
 	.who-we-are {
 		background-color: var(--color-gray-light);
+		position: relative;
+		padding-bottom: clamp(10rem, 20vw, 21.875rem);
+	}
+
+	.who-we-are p {
+		margin-bottom: 1.16rem;
+	}
+
+	@media (width <= 48rem) {
+		.who-we-are p {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	.who-we-are .overlay-image {
+		padding-inline: 2.25rem;
+		position: absolute;
+	}
+
+	@media (width <= 48rem) {
+		.who-we-are .overlay-image {
+			padding-inline: 1.5rem;
+			aspect-ratio: 16 / 9;
+		}
+	}
+
+	.who-we-are .overlay-image img {
+		object-fit: contain;
+		height: 100%;
+		max-height: 25rem;
+		border-radius: 1rem;
+	}
+
+	@media (width <= 48rem) {
+		.who-we-are .overlay-image img {
+			width: 100%;
+			object-fit: cover;
+		}
 	}
 </style>
