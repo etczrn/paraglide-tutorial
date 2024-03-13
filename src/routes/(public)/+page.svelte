@@ -1,9 +1,11 @@
 <script lang="ts">
 	import whatWeDo from '$lib/assets/public/what-we-do.png?enhanced';
 	import whoWeAre from '$lib/assets/public/who-we-are.png?enhanced';
+	import Link from '$lib/components/public/link.svelte';
 	import MainLink from '$lib/components/public/main-link.svelte';
 	import MainSection from '$lib/components/public/main-section.svelte';
 	import MainSplit from '$lib/components/public/main-split.svelte';
+	import Icon from '@iconify/svelte';
 
 	export let data;
 	const { research, insights } = data;
@@ -59,8 +61,16 @@
 	</div>
 	<div class="marquee-container">
 		<div class="marquee">
-			{#each Array(10) as _, i}
-				<div class="card">{i + 1}</div>
+			{#each Array(6) as _, i}
+				<Link href="">
+					<div class="card">
+						<img src="https://source.unsplash.com/random" alt="" />
+						<div class="title">
+							<p>Climate Finance</p>
+							<Icon icon="iconamoon:arrow-top-right-5-circle-thin" width={40} height={40} />
+						</div>
+					</div>
+				</Link>
 			{/each}
 		</div>
 	</div>
@@ -76,8 +86,8 @@
 		padding-bottom: clamp(10rem, 20vw, 21.875rem);
 	}
 
-	.who-we-are p,
-	.what-we-do p {
+	.who-we-are .description p,
+	.what-we-do .description p {
 		margin-bottom: 1.16rem;
 	}
 
@@ -139,7 +149,8 @@
 
 	.marquee-container {
 		margin-inline: 2.25rem;
-		margin-top: 10rem;
+		padding-top: 10rem;
+		padding-bottom: 11.75rem;
 		overflow: hidden;
 	}
 
@@ -161,7 +172,14 @@
 		width: 100%;
 		aspect-ratio: 1.45;
 		border-radius: 0.9375rem;
-		background-color: antiquewhite;
+		position: relative;
+	}
+
+	.card img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0.9375rem;
 	}
 
 	@keyframes marquee-left {
@@ -171,5 +189,28 @@
 		to {
 			transform: translateX(-100%);
 		}
+	}
+
+	.card .title {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 1.5rem;
+		width: 100%;
+		height: 5.625rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-end-start-radius: 0.9375rem;
+		border-end-end-radius: 0.9375rem;
+		/* added */
+		backdrop-filter: blur(7.5px);
+		background: rgba(183, 183, 181, 0.5);
+		color: white;
+	}
+
+	.card .title > p {
+		font-size: 1.75rem;
+		letter-spacing: var(--tracking-tighter);
 	}
 </style>
