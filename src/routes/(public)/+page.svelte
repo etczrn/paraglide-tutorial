@@ -132,7 +132,7 @@
 
 	@media (width <= 48rem) {
 		.what-we-do {
-			padding-top: 5.125rem;
+			padding-top: 6.625rem;
 		}
 	}
 
@@ -154,6 +154,14 @@
 		overflow: hidden;
 	}
 
+	@media (width <= 48rem) {
+		.marquee-container {
+			margin-inline: 1.5rem;
+			padding-top: 3.75rem;
+			padding-bottom: 4.1875rem;
+		}
+	}
+
 	.marquee {
 		display: grid;
 		grid-auto-flow: column;
@@ -162,6 +170,13 @@
 
 		animation: marquee-left 25s linear infinite;
 		animation-play-state: running;
+	}
+
+	@media (width <= 48rem) {
+		.marquee {
+			grid-auto-columns: 100%;
+			animation-duration: 10s;
+		}
 	}
 
 	.marquee:hover {
