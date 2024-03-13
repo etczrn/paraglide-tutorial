@@ -1,7 +1,8 @@
 <script lang="ts">
+	export let color: 'white' | 'black' = 'black';
 </script>
 
-<div class="split-layout">
+<div class="split-layout" style="--color:{color}">
 	<h1>
 		<slot name="title" />
 	</h1>
@@ -19,6 +20,7 @@
 		grid-template-areas: 'title description';
 		padding: 2.3125em 2.25rem;
 		/* min-height: 36.875rem; */
+		color: var(--color);
 	}
 
 	@media (width <= 48rem) {

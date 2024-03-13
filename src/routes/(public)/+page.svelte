@@ -44,7 +44,7 @@
 </section>
 
 <section class="what-we-do">
-	<MainSplit>
+	<MainSplit color="white">
 		<h1 slot="title">What we do</h1>
 		<svelte:fragment slot="paragraph">
 			<p>
@@ -54,12 +54,14 @@
 			<MainLink href="/what-we-do">See More</MainLink>
 		</svelte:fragment>
 	</MainSplit>
-	<enhanced:img src={whatWeDo} alt="background image for what we do section" />
+	<div class="background-image">
+		<enhanced:img src={whatWeDo} alt="background image for what we do section" />
+	</div>
+	<div class="carousel"></div>
 </section>
 
-<section class="our-people"></section>
-
-<section class="newsletter"></section>
+<!-- <section class="our-people"></section>
+<section class="newsletter"></section> -->
 
 <style>
 	.who-we-are {
@@ -94,7 +96,7 @@
 	.who-we-are .overlay-image img {
 		object-fit: contain;
 		height: 100%;
-		max-height: 25rem;
+		max-height: 27.5rem;
 		border-radius: 1rem;
 	}
 
@@ -102,11 +104,34 @@
 		.who-we-are .overlay-image img {
 			width: 100%;
 			object-fit: cover;
+			max-height: 12.5rem;
 		}
 	}
 
 	.what-we-do {
-		padding-top: clamp(4.375rem, 5vw, 13.25rem);
+		padding-top: min(10vw, 13.25rem);
 		position: relative;
+		min-height: min(100vh, 100vmax);
+	}
+
+	@media (width <= 48rem) {
+		.what-we-do {
+			padding-top: 5.125rem;
+		}
+	}
+
+	.what-we-do .background-image img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		filter: brightness(0.7);
+	}
+
+	.what-we-do .marquee {
+		margin-bottom: 10rem;
 	}
 </style>

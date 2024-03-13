@@ -30,6 +30,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.25rem;
+		color: var(--color-text-primary);
 	}
 
 	@media (max-width: 48rem) {
