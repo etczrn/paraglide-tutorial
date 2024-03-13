@@ -1,8 +1,9 @@
 <script lang="ts">
 	export let color: 'white' | 'black' = 'black';
+	export let ch: '45ch' | '30ch' = '45ch';
 </script>
 
-<div class="split-layout" style="--color:{color}">
+<div class="split-layout" style="--color:{color}; --max-width:{ch};">
 	<h1>
 		<slot name="title" />
 	</h1>
@@ -50,7 +51,7 @@
 	.split-layout .description {
 		margin-top: 1.25rem;
 		letter-spacing: var(--tracking-tight);
-		max-width: var(--max-w-ch-sm);
+		max-width: var(--max-width);
 		font-size: var(--text-2xl);
 		line-height: var(--leading-snug);
 	}

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import whatWeDo from '$lib/assets/public/what-we-do.png?enhanced';
 	import whoWeAre from '$lib/assets/public/who-we-are.png?enhanced';
 	import MainLink from '$lib/components/public/main-link.svelte';
@@ -44,7 +44,7 @@
 </section>
 
 <section class="what-we-do">
-	<MainSplit color="white">
+	<MainSplit color="white" ch="30ch">
 		<h1 slot="title">What we do</h1>
 		<svelte:fragment slot="paragraph">
 			<p>
@@ -57,7 +57,13 @@
 	<div class="background-image">
 		<enhanced:img src={whatWeDo} alt="background image for what we do section" />
 	</div>
-	<div class="carousel"></div>
+	<div class="marquee-container">
+		<div class="marquee">
+			{#each Array(10) as _, i}
+				<div class="card">{i + 1}</div>
+			{/each}
+		</div>
+	</div>
 </section>
 
 <!-- <section class="our-people"></section>
@@ -104,7 +110,7 @@
 		.who-we-are .overlay-image img {
 			width: 100%;
 			object-fit: cover;
-			max-height: 12.5rem;
+			max-height: 15rem;
 		}
 	}
 
@@ -131,7 +137,39 @@
 		filter: brightness(0.7);
 	}
 
-	.what-we-do .marquee {
-		margin-bottom: 10rem;
+	.marquee-container {
+		margin-inline: 2.25rem;
+		margin-top: 10rem;
+		overflow: hidden;
+	}
+
+	.marquee {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: 30rem;
+		gap: 0.75rem;
+
+		animation: marquee-left 25s linear infinite;
+		animation-play-state: running;
+	}
+
+	.marquee:hover {
+		animation-play-state: paused;
+	}
+
+	.card {
+		width: 100%;
+		aspect-ratio: 1.45;
+		border-radius: 0.9375rem;
+		background-color: antiquewhite;
+	}
+
+	@keyframes marquee-left {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-100%);
+		}
 	}
 </style>
