@@ -17,27 +17,26 @@
 	let prveButtonDisabled: boolean = true;
 	let nextButtonDisabled: boolean = false;
 
-	const handleInit = (event: CustomEvent<EmblaCarouselType>) => {
+	function handleInit(event: CustomEvent<EmblaCarouselType>) {
 		emblaApi = event.detail;
-	};
+		emblaApi.on('select', handleDisabled);
+	}
 
-	const handlePrev = () => {
-		if (!emblaApi) return;
-		emblaApi.scrollPrev();
-		handleDisabled();
-	};
-
-	const handleNext = () => {
-		if (!emblaApi) return;
-		emblaApi.scrollNext();
-		handleDisabled();
-	};
-
-	const handleDisabled = () => {
+	function handleDisabled() {
 		if (!emblaApi) return;
 		prveButtonDisabled = !emblaApi.canScrollPrev();
 		nextButtonDisabled = !emblaApi.canScrollNext();
-	};
+	}
+
+	function handlePrev() {
+		if (!emblaApi) return;
+		emblaApi.scrollPrev();
+	}
+
+	function handleNext() {
+		if (!emblaApi) return;
+		emblaApi.scrollNext();
+	}
 </script>
 
 <section class="research">
