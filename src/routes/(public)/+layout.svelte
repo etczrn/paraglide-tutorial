@@ -30,6 +30,10 @@
   - donate
 
 -->
+<main>
+	<slot />
+</main>
+
 <footer>
 	<section class="grid">
 		<h1 class="title">Solutions for Our Climate</h1>
@@ -65,9 +69,6 @@
 		<p class="copyright">Copyright © SFOC. All Rights Reserved.</p>
 	</section>
 </footer>
-<main>
-	<slot />
-</main>
 
 <style>
 	:global(body) {
@@ -120,6 +121,12 @@
 		letter-spacing: var(--tracking-tighter);
 	}
 
+	@media (width <= 48rem) {
+		footer {
+			font-size: var(--text-xxs);
+		}
+	}
+
 	footer .grid {
 		max-width: var(--max-w-screen-2xl);
 		width: 100%;
@@ -137,9 +144,30 @@
 		column-gap: 1rem;
 	}
 
+	@media (width <= 48rem) {
+		footer .grid {
+			grid-template-areas:
+				'title     social'
+				'basic     basic'
+				'line      line'
+				'contact   contact'
+				'line-2    line-2'
+				'policy    policy'
+				'copyright copyright';
+			column-gap: unset;
+			padding: 1.625rem 1.5rem 1.875rem 1.5rem;
+		}
+	}
+
 	footer .title {
 		grid-area: title;
 		font-size: var(--text-2xl);
+	}
+
+	@media (width <= 48rem) {
+		footer .title {
+			font-size: var(--text-md);
+		}
 	}
 
 	footer .social {
@@ -154,8 +182,21 @@
 		height: 2.25rem;
 	}
 
+	@media (width <= 48rem) {
+		footer .social :global(svg) {
+			width: 1.875rem;
+			height: 1.875rem;
+		}
+	}
+
 	footer .basic {
 		grid-area: basic;
+	}
+
+	@media (width <= 48rem) {
+		footer .basic {
+			margin-top: 4.625rem;
+		}
 	}
 
 	footer .line,
@@ -168,6 +209,13 @@
 	footer .line {
 		grid-area: line;
 		margin-block: 1.5rem;
+	}
+
+	@media (width <= 48rem) {
+		footer .line,
+		footer .line-2 {
+			margin-block: 1.25rem;
+		}
 	}
 
 	footer .contact {
@@ -187,13 +235,20 @@
 		gap: 0.9375rem;
 	}
 
+	@media (width <= 48rem) {
+		footer .basic,
+		footer .contact {
+			grid-template-columns: minmax(4rem, 1fr) 2fr;
+			gap: 0.625rem;
+		}
+	}
+
 	footer .basic p {
 		max-width: 50ch;
 	}
 
 	footer .policy {
 		grid-area: policy;
-
 		display: flex;
 		flex-wrap: wrap;
 	}
@@ -206,6 +261,12 @@
 		border-right: 1px solid var(--color-text-primary);
 	}
 
+	@media (width <= 48rem) {
+		footer .policy p::after {
+			margin-inline: 0.75rem;
+		}
+	}
+
 	footer .policy p:last-child::after {
 		border-right: none;
 	}
@@ -213,5 +274,12 @@
 	footer .copyright {
 		grid-area: copyright;
 		justify-self: end;
+	}
+
+	@media (width <= 48rem) {
+		footer .copyright {
+			justify-self: start;
+			margin-top: 0.625rem;
+		}
 	}
 </style>
