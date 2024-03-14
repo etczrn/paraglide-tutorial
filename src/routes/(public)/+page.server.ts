@@ -8,12 +8,13 @@ export const load: PageServerLoad = async ({ locals }) => {
 	} = locals;
 	return {
 		research: research[lang as AvailableLanguageTag],
-		insights: insights[lang as AvailableLanguageTag]
+		insights: insights[lang as AvailableLanguageTag],
+		jobs: jobs[lang as AvailableLanguageTag]
 	};
 };
 
 const thumbnail = 'https://source.unsplash.com/random';
-//
+
 const research: {
 	[key in AvailableLanguageTag]: Article[];
 } = {
@@ -114,5 +115,26 @@ const insights: {
 			tags: [],
 			postedOn: '2023-09-23T00:00:00.000Z'
 		}
+	]
+};
+
+const jobs: {
+	[key in AvailableLanguageTag]: Pick<Article, 'id' | 'title' | 'thumbnail'>[];
+} = {
+	en: [
+		{ id: 1, title: 'Climate Finance', thumbnail },
+		{ id: 2, title: 'Oil & Gas', thumbnail },
+		{ id: 3, title: 'Industry', thumbnail },
+		{ id: 4, title: 'RE Permitting', thumbnail },
+		{ id: 5, title: 'Power', thumbnail },
+		{ id: 6, title: 'Bioenergy & Land use', thumbnail }
+	],
+	ko: [
+		{ id: 1, title: '기후 재정', thumbnail },
+		{ id: 2, title: '석유 및 가스', thumbnail },
+		{ id: 3, title: '산업', thumbnail },
+		{ id: 4, title: 'RE 허용', thumbnail },
+		{ id: 5, title: '전력', thumbnail },
+		{ id: 6, title: '생물에너지 및 토지 이용', thumbnail }
 	]
 };

@@ -45,6 +45,7 @@
 		.split-layout > h1 {
 			font-size: var(--text-6xl);
 			margin-bottom: 2.5rem;
+			margin-right: 0;
 		}
 	}
 
@@ -59,6 +60,7 @@
 	@media (width <= 48rem) {
 		.split-layout .description {
 			margin-top: 0;
+			font-size: var(--text-xxl);
 		}
 	}
 </style>

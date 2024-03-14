@@ -8,7 +8,7 @@
 	import Icon from '@iconify/svelte';
 
 	export let data;
-	const { research, insights } = data;
+	const { research, insights, jobs } = data;
 </script>
 
 <section class="hero"></section>
@@ -61,13 +61,14 @@
 	</div>
 	<div class="marquee-container">
 		<div class="marquee">
-			{#each Array(6) as _, i}
+			<!-- TODO: 화면 꽉 차게 돌리기 -->
+			{#each jobs as { title, thumbnail }, i}
 				<Link href="">
 					<div class="card">
-						<img src="https://source.unsplash.com/random" alt="" />
+						<img src={thumbnail} alt={title} />
 						<div class="title">
-							<p>Climate Finance</p>
-							<Icon icon="iconamoon:arrow-top-right-5-circle-thin" width={40} height={40} />
+							<p><sup>{i + 1}</sup> {title}</p>
+							<Icon icon="iconamoon:arrow-top-right-5-circle-thin" class="arrow-icon" />
 						</div>
 					</div>
 				</Link>
@@ -174,8 +175,9 @@
 
 	@media (width <= 48rem) {
 		.marquee {
-			grid-auto-columns: 100%;
+			grid-auto-columns: min(100%, 30rem);
 			animation-duration: 10s;
+			gap: 1.5rem;
 		}
 	}
 
@@ -219,13 +221,36 @@
 		border-end-start-radius: 0.9375rem;
 		border-end-end-radius: 0.9375rem;
 		/* added */
-		backdrop-filter: blur(7.5px);
+		backdrop-filter: blur(0.625rem);
 		background: rgba(183, 183, 181, 0.5);
 		color: white;
+	}
+
+	@media (width <= 48rem) {
+		.card .title {
+			height: 4.375rem;
+			padding: 1.25rem;
+		}
 	}
 
 	.card .title > p {
 		font-size: 1.75rem;
 		letter-spacing: var(--tracking-tighter);
+	}
+
+	@media (width <= 48rem) {
+		.card .title p {
+			font-size: var(--text-xxl);
+		}
+	}
+
+	div :global(.arrow-icon) {
+		font-size: 2.5rem;
+	}
+
+	@media (width <= 48rem) {
+		div :global(.arrow-icon) {
+			font-size: 1.875rem;
+		}
 	}
 </style>
