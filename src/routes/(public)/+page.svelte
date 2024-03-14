@@ -1,6 +1,8 @@
 <script lang="ts">
+	import ourPeople from '$lib/assets/public/our-poeple.png?enhanced';
 	import whatWeDo from '$lib/assets/public/what-we-do.png?enhanced';
 	import whoWeAre from '$lib/assets/public/who-we-are.png?enhanced';
+
 	import Link from '$lib/components/public/link.svelte';
 	import MainLink from '$lib/components/public/main-link.svelte';
 	import MainSection from '$lib/components/public/main-section.svelte';
@@ -77,7 +79,54 @@
 	</div>
 </section>
 
-<!-- <section class="our-people"></section>
+<section class="our-people">
+	<MainSplit ch="38ch">
+		<h1 slot="title">Our People</h1>
+		<svelte:fragment slot="paragraph">
+			<p>
+				SFOC has a passionate team with expertise in energy, environment, law, finance, and media,
+				and seeks innovative and effective approaches to reaching a net-zero emissions target.
+			</p>
+			<MainLink href="people">See More</MainLink>
+		</svelte:fragment>
+	</MainSplit>
+	<div class="background-image">
+		<enhanced:img src={ourPeople} alt="background image for our people section" />
+		<!-- our people svg animation -->
+		<div class="circle-svg">
+			<svg
+				id="Vector"
+				width="731"
+				height="731"
+				viewBox="0 0 731 731"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				style="max-width: 100%; max-height: 100%;"
+			>
+				<path
+					d="M604.274 91.0979C680.109 157.715 728 255.528 728 364.557C728 565.279 565.704 728 365.5 728C165.296 728 3 565.279 3 364.557C3 176.389 145.639 21.6118 328.432 3"
+					stroke="#0A39C3"
+					stroke-width="6"
+					stroke-miterlimit="10"
+					stroke-dasharray="0,0,0,1982.986328125"
+				>
+					<animate
+						attributeType="XML"
+						attributeName="stroke-dasharray"
+						repeatCount="1"
+						dur="3.3924234765915586s"
+						values="0,0,0,1982.986328125; 0,913.5294128075552,1069.4569153174448,0; 1982.986328125,0,0,0"
+						keyTimes="0; 0.46068366677612804; 1"
+						begin="0.8448200175225875s"
+						fill="freeze"
+					></animate>
+				</path>
+			</svg>
+		</div>
+	</div>
+</section>
+
+<!-- 
 <section class="newsletter"></section> -->
 
 <style>
@@ -88,7 +137,8 @@
 	}
 
 	.who-we-are .description p,
-	.what-we-do .description p {
+	.what-we-do .description p,
+	.our-people .description p {
 		margin-bottom: 1.16rem;
 	}
 
@@ -128,7 +178,10 @@
 	.what-we-do {
 		padding-top: min(10vw, 13.25rem);
 		position: relative;
-		min-height: min(100vh, 100vmax);
+	}
+
+	.what-we-do .background-image img {
+		filter: brightness(0.7);
 	}
 
 	@media (width <= 48rem) {
@@ -137,7 +190,7 @@
 		}
 	}
 
-	.what-we-do .background-image img {
+	.background-image img {
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -145,7 +198,6 @@
 		z-index: -1;
 		top: 0;
 		left: 0;
-		filter: brightness(0.7);
 	}
 
 	.marquee-container {
@@ -251,6 +303,30 @@
 	@media (width <= 48rem) {
 		div :global(.arrow-icon) {
 			font-size: 1.875rem;
+		}
+	}
+
+	.our-people {
+		min-height: 64rem;
+		padding-top: 2.0625rem;
+		position: relative;
+	}
+
+	.our-people .circle-svg {
+		width: max-content;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	@media (width <= 48rem) {
+		.our-people .circle-svg {
+			width: 100%;
+			position: unset;
+			transform: unset;
+			padding-inline: 1.5rem;
+			aspect-ratio: 1;
 		}
 	}
 </style>

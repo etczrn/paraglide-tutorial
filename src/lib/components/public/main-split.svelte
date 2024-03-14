@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let color: 'white' | 'black' = 'black';
-	export let ch: '45ch' | '30ch' = '45ch';
+	export let ch: '30ch' | '38ch' | '45ch' = '45ch';
 </script>
 
 <div class="split-layout" style="--color:{color}; --max-width:{ch};">
