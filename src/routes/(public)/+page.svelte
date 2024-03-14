@@ -23,7 +23,9 @@
 	linkText="See all Research"
 	articles={research}
 />
-
+<div class="space">
+	<hr />
+</div>
 <MainSection
 	title="Insights"
 	subtitle="New Insights"
@@ -31,7 +33,7 @@
 	linkText="See all insights"
 	articles={insights}
 />
-
+<div class="space"></div>
 <section class="who-we-are">
 	<MainSplit>
 		<h1 slot="title">Who we are</h1>
@@ -491,5 +493,10 @@
 			left: 50%;
 			transform: translateX(-50%);
 		}
+	}
+
+	.space {
+		margin-top: 13.375rem;
+		padding-inline: 2.25rem;
 	}
 </style>
