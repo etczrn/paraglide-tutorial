@@ -126,8 +126,18 @@
 	</div>
 </section>
 
-<!-- 
-<section class="newsletter"></section> -->
+<section class="newsletter-background">
+	<div class="newsletter">
+		<h1 class="title">SFOC Newsletter</h1>
+		<form class="form">
+			<input class="email" type="email" placeholder="Email" />
+			<button class="button">Subscribe</button>
+		</form>
+		<p class="description">
+			Get updates on the SFOC latest insight, analysis, data and events delivered twice monthly.
+		</p>
+	</div>
+</section>
 
 <style>
 	.who-we-are {
@@ -327,6 +337,122 @@
 			transform: unset;
 			padding-inline: 1.5rem;
 			aspect-ratio: 1;
+		}
+	}
+
+	.newsletter-background {
+		background-color: var(--color-accent);
+		min-height: 25.625rem;
+	}
+
+	.newsletter {
+		max-width: var(--max-w-screen-2xl);
+		margin-inline: auto;
+		padding: 1.875rem 2.25rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+			'title form'
+			'title description';
+		color: var(--color-white);
+		line-height: var(--tracking-tighter);
+	}
+
+	@media (width <= 48rem) {
+		.newsletter {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				'title'
+				'form'
+				'description';
+			padding: 1.5rem;
+		}
+	}
+
+	.newsletter .title {
+		grid-area: title;
+		font-size: 2.25rem; /* 36px */
+	}
+
+	@media (width <= 48rem) {
+		.newsletter .title {
+			font-size: var(--text-2xl);
+			margin-bottom: 1.25rem;
+		}
+	}
+
+	.newsletter .form {
+		grid-area: form;
+		margin-top: 0.625rem;
+
+		display: grid;
+		grid-template-areas: 'email button';
+		grid-template-columns: 6.5fr 3.5fr;
+		gap: 0.75rem;
+		margin-bottom: 1.75rem;
+		min-height: 3.75rem;
+	}
+
+	@media (width <= 48rem) {
+		.newsletter .form {
+			margin-top: 0;
+			min-height: 2.5rem;
+			grid-template-columns: minmax(6.625rem, 1fr);
+		}
+	}
+
+	.newsletter .form .email {
+		grid-area: email;
+
+		font-size: var(--text-2xl);
+		max-width: 30rem;
+		padding-inline: 1.25rem;
+		border: var(--color-white) 1px solid;
+		background: transparent;
+		border-radius: 0.9375rem;
+		letter-spacing: var(--tracking-tighter);
+	}
+
+	@media (width <= 48rem) {
+		.newsletter .form .email {
+			font-size: var(--text-md);
+			padding-inline: 1rem;
+			border-radius: 0.625rem;
+		}
+	}
+
+	.newsletter .form .button {
+		grid-area: button;
+
+		background-color: #151515;
+		letter-spacing: var(--tracking-tighter);
+		border-radius: 0.9375rem;
+		font-size: var(--text-xxl);
+		font-weight: var(--font-medium);
+		padding-inline: 1.25rem;
+	}
+
+	@media (width <= 48rem) {
+		.newsletter .form .button {
+			font-size: var(--text-md);
+			padding-inline: 1rem;
+			border-radius: 0.625rem;
+		}
+	}
+
+	.newsletter .description {
+		grid-area: description;
+
+		font-size: var(--text-2xl);
+		letter-spacing: var(--tracking-tighter);
+		line-height: 1.3;
+		max-width: var(--max-w-ch-sm);
+	}
+
+	@media (width <= 48rem) {
+		.newsletter .description {
+			font-size: var(--text-md);
+			/* margin-top: 1.25rem; */
 		}
 	}
 </style>
