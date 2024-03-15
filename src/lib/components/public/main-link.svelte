@@ -8,13 +8,8 @@
 <div class="link">
 	<Link {href}>
 		<slot />
-		<Icon
-			icon="system-uicons:arrow-top-right"
-			style="display:inline-block"
-			width={22}
-			height={22}
-		/>
 	</Link>
+	<Icon icon="system-uicons:arrow-top-right" width={22} height={22} />
 </div>
 
 <style>

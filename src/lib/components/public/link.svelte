@@ -11,10 +11,3 @@
 <a {href} {hreflang} class={className}>
 	<slot />
 </a>
-
-<style>
-	a {
-		display: flex;
-		justify-content: center;
-	}
-</style>
