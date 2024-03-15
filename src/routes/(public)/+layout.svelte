@@ -1,11 +1,22 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import Link from '$lib/components/public/link.svelte';
+	import Item from '$lib/components/public/navigation/item.svelte';
 	import Logo from '$lib/components/public/navigation/logo.svelte';
 	import Menu from '$lib/components/public/navigation/menu.svelte';
+	import { i18n } from '$lib/i18n';
 	import type { NavLink } from '$lib/models/public/navigation';
+	import {
+		availableLanguageTags,
+		languageTag,
+		setLanguageTag,
+		type AvailableLanguageTag
+	} from '$paraglide/runtime';
 	import '@fontsource-variable/inter';
 	import Icon from '@iconify/svelte';
 	import { createMenubar, melt } from '@melt-ui/svelte';
+	import { get } from 'svelte/store';
 
 	const links: NavLink[] = [
 		{
@@ -39,19 +50,22 @@
 		elements: { menubar },
 		builders: { createMenu }
 	} = createMenubar();
+	const {
+		elements: { menu, item: menuItem, trigger }
+	} = createMenu();
 
-	// const labels: Record<AvailableLanguageTag, string> = {
-	// 	en: 'ENG',
-	// 	ko: 'KOR'
-	// };
-	// const currentLang = languageTag();
+	const labels: Record<AvailableLanguageTag, string> = {
+		en: 'ENG',
+		ko: 'KOR'
+	};
+	const currentLang = languageTag();
 
-	// const handleLanguageChange = (e: Event) => {
-	// 	const { value } = e.target as HTMLButtonElement;
-	// 	const canonicalPath = i18n.route(get(page).url.pathname);
-	// 	const localisedPath = i18n.resolveRoute(canonicalPath, value as AvailableLanguageTag);
-	// 	goto(localisedPath);
-	// };
+	const handleLanguageChange = (value: AvailableLanguageTag) => {
+		const canonicalPath = i18n.route(get(page).url.pathname);
+		const localisedPath = i18n.resolveRoute(canonicalPath, value);
+		goto(localisedPath);
+		setLanguageTag(value);
+	};
 </script>
 
 <nav>
@@ -61,15 +75,20 @@
 	<ul class="links" use:melt={$menubar}>
 		{#each links as item}
 			<li>
-				<Menu {item} {createMenu} />
+				<Menu {item} {createMenu} {...item.href === 'feed' && { variant: 'secondary' }} />
 			</li>
 		{/each}
 		<button class="magnify">
 			<Icon icon="mdi-light:magnify" />
 		</button>
 		<div class="divider" />
-		<li>ENG</li>
-		<li><a href="donation">Donate</a></li>
+		<button use:melt={$trigger}>{labels[currentLang]}</button>
+		<div use:melt={$menu}>
+			{#each availableLanguageTags as lang}
+				<Item name={labels[lang]} element={menuItem} onClick={() => handleLanguageChange(lang)} />
+			{/each}
+		</div>
+		<Menu item={{ name: 'Donate', href: 'donation' }} {createMenu} variant="accent" size="medium" />
 	</ul>
 </nav>
 <main>
