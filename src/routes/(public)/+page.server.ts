@@ -2,10 +2,14 @@ import type { Article } from '$lib/models/public/article';
 import { type AvailableLanguageTag } from '$paraglide/runtime';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ locals }) => {
+export const load: PageServerLoad = async ({ locals, depends }) => {
+	// The Adapter automatically calls `invalidate("paraglide:lang")` whenever the langauge changes
+	// This tells SvelteKit to re-run this function whenever that happens
+	depends('paraglide:lang');
 	const {
 		paraglide: { lang }
 	} = locals;
+	console.log({ lang });
 	return {
 		research: research[lang as AvailableLanguageTag],
 		insights: insights[lang as AvailableLanguageTag],
