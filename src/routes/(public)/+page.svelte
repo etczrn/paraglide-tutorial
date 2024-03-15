@@ -499,4 +499,11 @@
 		margin-top: 13.375rem;
 		padding-inline: 2.25rem;
 	}
+
+	@media (width <= 48rem) {
+		.space {
+			margin-top: 10rem;
+			padding-inline: 1.5rem;
+		}
+	}
 </style>
