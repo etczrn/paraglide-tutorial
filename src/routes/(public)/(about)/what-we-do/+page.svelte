@@ -31,7 +31,7 @@
 			{/each}
 		</ul>
 	</aside>
-	<div class="detail">
+	<div class="main">
 		{#each jobs as { id, title, body, thumbnail }}
 			<article class="card">
 				<h1 class="title">{title}</h1>
@@ -42,7 +42,9 @@
 				<div class="link">
 					<MainLink href={`${id}`}>View More</MainLink>
 				</div>
-				<img src={thumbnail} alt={title} class="image" />
+				<div class="image">
+					<img src={thumbnail} alt={title} />
+				</div>
 			</article>
 		{/each}
 	</div>
@@ -106,10 +108,12 @@
 		max-width: var(--max-w-screen-2xl);
 		display: grid;
 		grid-template-columns: minmax(max-content, 2.5fr) 7.5fr;
+		grid-template-areas: 'table-of-contents main';
 		gap: 1rem;
 	}
 
 	.intro-section aside {
+		grid-area: table-of-contents;
 		font-size: var(--text-xxl);
 		letter-spacing: var(--tracking-tighter);
 		/* not selected */
@@ -126,6 +130,10 @@
 		gap: 0.9375rem;
 	}
 
+	.intro-section .main {
+		grid-area: main;
+	}
+
 	.card {
 		display: grid;
 		grid-template-areas:
@@ -133,12 +141,13 @@
 			'body image'
 			'link image';
 		gap: 1.5rem;
-		grid-template-columns: 1fr minmax(50%, 1fr);
-		margin-block: 8.75rem;
+		grid-template-columns: 1fr 1fr;
+		padding-block: 8.75rem;
+		border-bottom: 0.0625rem var(--color-gray-light) solid;
 	}
 
 	.card:first-child {
-		margin-top: 0;
+		padding-top: 0;
 	}
 
 	.card .title {
@@ -156,8 +165,14 @@
 	.card .image {
 		grid-area: image;
 		width: 100%;
+		aspect-ratio: 1;
+	}
+
+	.card .image img {
+		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		border-radius: 0.9375rem;
 	}
 
 	@media (width <= 48rem) {
