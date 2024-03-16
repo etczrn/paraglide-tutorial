@@ -33,6 +33,8 @@
 		--text-5xl: 2.625rem; /* 42px */
 		--text-6xl: 3.125rem; /* 50px */
 		--text-7xl: 5rem; /* 80px */
+		--text-8xl: 6.25rem; /* 100px */
+		--text-9xl: 7.5rem; /* 120px */
 		--color-primary: #3c41be;
 		--color-secondary: #f1f1f1;
 		--color-accent: #0a39c3;
