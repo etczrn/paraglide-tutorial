@@ -1,6 +1,7 @@
 <script lang="ts">
 	import background from '$lib/assets/public/what-we-do.png?enhanced';
 	import MainLink from '$lib/components/public/main-link.svelte';
+	import Newsletter from '$lib/components/public/newsletter.svelte';
 	import LeftBottomArrow from '$lib/components/public/what-we-do/left-arrow-cirlce.svelte';
 	export let data;
 	const { jobs } = data;
@@ -49,6 +50,7 @@
 		{/each}
 	</div>
 </section>
+<Newsletter />
 
 <style>
 	.nav-section {

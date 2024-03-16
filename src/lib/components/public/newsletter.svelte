@@ -22,6 +22,8 @@
 	.background {
 		background-color: var(--color-accent);
 		height: 25.625rem;
+		container-name: newsletter;
+		container-type: inline-size;
 	}
 
 	@media (width <= 48rem) {
@@ -168,6 +170,19 @@
 			left: 50%;
 			transform: translateX(-50%);
 			margin: 0;
+		}
+	}
+
+	@container newsletter (width <= 22.5rem) {
+		.newsletter .form {
+			grid-template-columns: 1fr;
+			grid-template-areas: 'email' 'button';
+			height: auto;
+		}
+
+		.newsletter .form .email,
+		.newsletter .form .button {
+			height: 2.5rem;
 		}
 	}
 </style>
