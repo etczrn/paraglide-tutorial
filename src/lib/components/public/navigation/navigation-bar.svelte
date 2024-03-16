@@ -72,7 +72,8 @@
 	<Link href="/" class="logo">
 		<Logo />
 	</Link>
-	<ul class="links" use:melt={$menubar}>
+	<!-- pc nav -->
+	<ul class="links pc-menu" use:melt={$menubar}>
 		{#each links as item}
 			<li>
 				<Menu {item} {createMenu} {...item.href === 'feed' && { variant: 'secondary' }} />
@@ -81,7 +82,7 @@
 		<button class="magnify">
 			<Icon icon="mdi-light:magnify" />
 		</button>
-		<div class="divider" />
+		<div class="divider pc-menu" />
 		<button use:melt={$trigger}>{labels[currentLang]}</button>
 		<div use:melt={$menu}>
 			{#each availableLanguageTags as lang}
@@ -89,6 +90,30 @@
 			{/each}
 		</div>
 		<Menu item={{ name: 'Donate', href: 'donation' }} {createMenu} variant="accent" size="medium" />
+	</ul>
+	<!-- mobile nav -->
+	<ul class="mobile-menu">
+		<button class="magnify">
+			<Icon icon="mdi-light:magnify" />
+		</button>
+		<button class="hamburger-menu">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="1em"
+				height="1em"
+				viewBox="0 0 32 32"
+				{...$$props}
+			>
+				<path
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="1.1"
+					d="M5 8h22M5 16h22M5 24h22"
+				/>
+			</svg>
+		</button>
 	</ul>
 </nav>
 
@@ -100,6 +125,7 @@
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		gap: 1.5rem;
 		/* TODO: 맨 상단에 닿으면 background-color white - 스크롤 다운 시 background-color: transparent, color: white (로고 포함) */
 		background-color: var(--color-white);
@@ -107,7 +133,11 @@
 		z-index: 999;
 	}
 
-	nav .links {
+	nav .mobile-menu {
+		display: none;
+	}
+
+	nav .pc-menu {
 		display: flex;
 		gap: clamp(0.75rem, 0.625rem + 1vw, 1.5rem);
 		font-size: var(--text-xl);
@@ -115,23 +145,45 @@
 		align-items: center;
 	}
 
-	nav .links li {
+	nav .pc-menu li {
 		min-width: max-content;
 	}
 
-	nav .magnify {
+	nav .magnify,
+	nav .hamburger-menu {
 		width: 1.5rem;
 		height: 1.5rem;
 		aspect-ratio: 1;
 	}
 
-	nav .magnify :global(svg) {
+	nav .magnify :global(svg),
+	nav .hamburger-menu :global(svg) {
 		width: 100%;
 		height: 100%;
 	}
 
-	nav .divider {
+	nav .pc-menu .divider {
 		border-right: 0.0625rem solid var(--color-black);
 		height: 1.5rem;
+	}
+
+	@media (width <= 64rem) {
+		nav {
+			padding: 0.8125rem 1.5rem;
+		}
+
+		nav :global(.logo) {
+			width: clamp(3.75rem, 15vw, 6.25rem);
+		}
+
+		nav .pc-menu {
+			display: none;
+		}
+
+		nav .mobile-menu {
+			display: flex;
+			gap: 0.75rem;
+			align-items: center;
+		}
 	}
 </style>
