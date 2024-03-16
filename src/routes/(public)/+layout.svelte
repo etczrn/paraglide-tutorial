@@ -54,5 +54,7 @@
 		--max-w-ch-sm: 45ch;
 		--max-w-screen-md: 48rem; /* 768px */
 		--max-w-screen-2xl: 96rem; /* 1536px */
+		--max-w-screen-3xl: 120rem /* 1920px */;
+		--max-w-screen-4xl: 160rem /* 2560px */;
 	}
 </style>

@@ -36,11 +36,11 @@
 			<article class="card">
 				<h1 class="title">{title}</h1>
 				<div class="body">
-					<p>Introduction</p>
+					<p class="introduction">Introduction</p>
 					<p>{body}</p>
 				</div>
 				<div class="link">
-					<MainLink href={`${id}`}>View More</MainLink>
+					<MainLink href={`${id}`} size="small" arrowSize={24}><span>View More</span></MainLink>
 				</div>
 				<div class="image">
 					<img src={thumbnail} alt={title} />
@@ -67,7 +67,7 @@
 	}
 
 	.nav-section nav {
-		max-width: var(--max-w-screen-2xl);
+		max-width: var(--max-w-screen-4xl);
 		margin-inline: auto;
 		padding: 5.875rem 2.25rem;
 		display: grid;
@@ -115,6 +115,7 @@
 	.intro-section aside {
 		grid-area: table-of-contents;
 		font-size: var(--text-xxl);
+		font-size: clamp(var(--text-lg), calc(1.4vw + 0.1rem), var(--text-xxl));
 		letter-spacing: var(--tracking-tighter);
 		/* not selected */
 		color: var(--color-gray-dark);
@@ -132,6 +133,8 @@
 
 	.intro-section .main {
 		grid-area: main;
+		container-name: main-container;
+		container-type: inline-size;
 	}
 
 	.card {
@@ -141,7 +144,8 @@
 			'body image'
 			'link image';
 		gap: 1.5rem;
-		grid-template-columns: 1fr 1fr;
+		/* grid-template-columns: 1fr 1fr; */
+		grid-template-columns: 1fr minmax(16rem, 1fr);
 		padding-block: 8.75rem;
 		border-bottom: 0.0625rem var(--color-gray-light) solid;
 	}
@@ -152,14 +156,39 @@
 
 	.card .title {
 		grid-area: title;
+		font-size: var(--text-6xl);
+		letter-spacing: var(--tracking-tighter);
 	}
 
 	.card .body {
 		grid-area: body;
+		/* max-width: 47ch; */
+		max-width: var(--max-w-ch-sm);
+		font-size: 1.125rem;
+		line-height: 1.5;
+		letter-spacing: var(--tracking-tighter);
+		color: var(--color-text-primary);
+	}
+
+	.card .introduction {
+		font-size: var(--text-2xl);
+		letter-spacing: var(--tracking-tighter);
+		font-weight: var(--font-medium);
+		margin-bottom: 0.875rem;
+		color: var(--color-black);
 	}
 
 	.card .link {
 		grid-area: link;
+		align-self: self-end;
+
+		letter-spacing: var(--tracking-tighter);
+		font-weight: var(--font-medium);
+		color: var(--color-black);
+	}
+
+	.card .link span {
+		font-size: var(--text-xxl);
 	}
 
 	.card .image {
@@ -173,6 +202,31 @@
 		height: 100%;
 		object-fit: cover;
 		border-radius: 0.9375rem;
+	}
+
+	@container main-container (max-width: 37.5rem) {
+		.card {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				'title'
+				'image'
+				'body'
+				'link';
+			padding-block: clamp(5rem, 10vw, 8.75rem);
+		}
+
+		.card .title {
+			font-size: clamp(var(--text-3xl), calc(6vw + 0.1rem), var(--text-6xl));
+		}
+
+		.card .body {
+			max-width: 100%;
+			font-size: var(--text-xl);
+		}
+
+		.card .introduction {
+			font-size: clamp(var(--text-xxl), 2.5vw, var(--text-2xl));
+		}
 	}
 
 	@media (width <= 48rem) {
@@ -196,6 +250,20 @@
 
 		.nav-section li:first-child {
 			border-top: none;
+		}
+
+		.intro-section {
+			padding: 1.5rem;
+			display: block;
+		}
+
+		.intro-section aside {
+			display: none;
+		}
+
+		.intro-section .main {
+			max-width: var(--max-w-prose);
+			margin-inline: auto;
 		}
 	}
 </style>

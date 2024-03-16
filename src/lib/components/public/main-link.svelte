@@ -3,13 +3,20 @@
 	import Link from './link.svelte';
 
 	export let href: string;
+	export let arrowSize: 22 | 24 = 22;
+	export let size: 'small' | 'medium' = 'medium';
+
+	const paddings = {
+		small: `--padding: 0.3125rem 0.3125rem 0.25rem 0.625rem`,
+		medium: `--padding: 0.375rem 0.5rem 0.375rem 0.75rem`
+	};
 </script>
 
-<div class="link">
+<div class="link" style="{paddings[size]};">
 	<Link {href}>
 		<slot />
 	</Link>
-	<Icon icon="system-uicons:arrow-top-right" width={22} height={22} />
+	<Icon icon="system-uicons:arrow-top-right" width={arrowSize} height={arrowSize} />
 </div>
 
 <style>
@@ -17,7 +24,7 @@
 		grid-area: link;
 		font-size: var(--text-xl);
 		letter-spacing: var(--tracking-tighter);
-		padding: 0.375rem 0.5rem 0.375rem 0.75rem;
+		padding: var(--padding);
 		background-color: var(--color-gray-light);
 		max-width: fit-content;
 		border-radius: 0.625rem;
