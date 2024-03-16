@@ -1,5 +1,6 @@
 <script lang="ts">
 	import background from '$lib/assets/public/what-we-do.png?enhanced';
+	import MainLink from '$lib/components/public/main-link.svelte';
 	import LeftBottomArrow from '$lib/components/public/what-we-do/left-arrow-cirlce.svelte';
 	export let data;
 	const { jobs } = data;
@@ -19,6 +20,32 @@
 			{/each}
 		</ul>
 	</nav>
+</section>
+<section class="intro-section">
+	<aside>
+		<ul>
+			{#each jobs as { title }, i}
+				<li>
+					<h2><sup>{i + 1}</sup> {title}</h2>
+				</li>
+			{/each}
+		</ul>
+	</aside>
+	<div class="detail">
+		{#each jobs as { id, title, body, thumbnail }}
+			<article class="card">
+				<h1 class="title">{title}</h1>
+				<div class="body">
+					<p>Introduction</p>
+					<p>{body}</p>
+				</div>
+				<div class="link">
+					<MainLink href={`${id}`}>View More</MainLink>
+				</div>
+				<img src={thumbnail} alt={title} class="image" />
+			</article>
+		{/each}
+	</div>
 </section>
 
 <style>
@@ -71,6 +98,66 @@
 
 	.nav-section li h2 {
 		display: inline-block;
+	}
+
+	.intro-section {
+		padding: 2.25rem;
+		margin-inline: auto;
+		max-width: var(--max-w-screen-2xl);
+		display: grid;
+		grid-template-columns: minmax(max-content, 2.5fr) 7.5fr;
+		gap: 1rem;
+	}
+
+	.intro-section aside {
+		font-size: var(--text-xxl);
+		letter-spacing: var(--tracking-tighter);
+		/* not selected */
+		color: var(--color-gray-dark);
+		font-weight: var(--font-regular);
+		/* selected */
+		color: var(--color-black);
+		font-weight: var(--font-semibold);
+	}
+
+	.intro-section aside ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.9375rem;
+	}
+
+	.card {
+		display: grid;
+		grid-template-areas:
+			'title image'
+			'body image'
+			'link image';
+		gap: 1.5rem;
+		grid-template-columns: 1fr minmax(50%, 1fr);
+		margin-block: 8.75rem;
+	}
+
+	.card:first-child {
+		margin-top: 0;
+	}
+
+	.card .title {
+		grid-area: title;
+	}
+
+	.card .body {
+		grid-area: body;
+	}
+
+	.card .link {
+		grid-area: link;
+	}
+
+	.card .image {
+		grid-area: image;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	@media (width <= 48rem) {

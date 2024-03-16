@@ -18,6 +18,7 @@
 	:global(:root) {
 		--font-regular: 400;
 		--font-medium: 500;
+		--font-semibold: 600;
 		--font-bold: 700;
 
 		--text-xxs: 0.625rem; /* 10px */
@@ -42,6 +43,7 @@
 		--color-black: #000000;
 		--color-white: #ffffff;
 		--color-gray-light: #f4f3f0;
+		--color-gray-dark: #b7b7b5;
 
 		--leading-snug: 1.3;
 		--leading-normal: 1.5;
