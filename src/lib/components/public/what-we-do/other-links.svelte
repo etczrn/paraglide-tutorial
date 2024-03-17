@@ -8,7 +8,7 @@
 		{ title: 'Who we are', href: '/who-we-are' },
 		{ title: 'People', href: '/people' }
 	];
-	$: otherLinks = links.filter(({ href }) => href !== $page.url.pathname);
+	$: otherLinks = links.filter(({ href }) => !$page.url.pathname.includes(href));
 </script>
 
 <section class="other-links">
