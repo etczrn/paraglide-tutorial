@@ -14,6 +14,9 @@ dependencies:
   embla-carousel-svelte:
     specifier: ^8.0.0
     version: 8.0.0(svelte@4.2.12)
+  svelte-inview:
+    specifier: ^4.0.2
+    version: 4.0.2(svelte@4.2.12)
 
 devDependencies:
   '@iconify/svelte':
@@ -3560,6 +3563,14 @@ packages:
     dependencies:
       svelte: 4.2.12
     dev: true
+
+  /svelte-inview@4.0.2(svelte@4.2.12):
+    resolution: {integrity: sha512-saJp2QRCUEBletGPnI3utxROHqruDGRPfPhtdpNYQwD97P2oCKiVIlZE3tFNEiC7h3nCvU+8czaKWcH1o/axrA==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0
+    dependencies:
+      svelte: 4.2.12
+    dev: false
 
   /svelte-parse-markup@0.1.2(svelte@4.2.12):
     resolution: {integrity: sha512-DycY7DJr7VqofiJ63ut1/NEG92HrWWL56VWITn/cJCu+LlZhMoBkBXT4opUitPEEwbq1nMQbv4vTKUfbOqIW1g==}
