@@ -81,7 +81,9 @@
 			{#each jobs as { title, thumbnail }, i}
 				<Link href="">
 					<div class="card">
-						<img src={thumbnail} alt={title} />
+						<div class="image-container">
+							<img src={thumbnail} alt={title} />
+						</div>
 						<div class="title">
 							<p><sup>{i + 1}</sup> {title}</p>
 							<Icon icon="iconamoon:arrow-top-right-5-circle-thin" class="arrow-icon" />
@@ -231,14 +233,6 @@
 		overflow: hidden;
 	}
 
-	@media (width <= 48rem) {
-		.marquee-container {
-			margin-inline: 1.5rem;
-			padding-top: 3.75rem;
-			padding-bottom: 4.1875rem;
-		}
-	}
-
 	.marquee {
 		display: grid;
 		grid-auto-flow: column;
@@ -247,14 +241,6 @@
 
 		animation: marquee-left 25s linear infinite;
 		animation-play-state: running;
-	}
-
-	@media (width <= 48rem) {
-		.marquee {
-			grid-auto-columns: min(100%, 30rem);
-			animation-duration: 10s;
-			gap: 1.5rem;
-		}
 	}
 
 	.marquee:hover {
@@ -268,20 +254,23 @@
 		position: relative;
 	}
 
+	.card .image-container {
+		width: 100%;
+		height: calc(100% - 5.625rem);
+		overflow: hidden;
+		border-top-left-radius: 0.9375rem;
+		border-top-right-radius: 0.9375rem;
+	}
+
 	.card img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		border-radius: 0.9375rem;
 	}
 
-	@keyframes marquee-left {
-		from {
-			transform: translateX(0);
-		}
-		to {
-			transform: translateX(-100%);
-		}
+	.card:hover img {
+		transition: all 0.5s ease;
+		transform: scale(1.1);
 	}
 
 	.card .title {
@@ -302,22 +291,9 @@
 		color: white;
 	}
 
-	@media (width <= 48rem) {
-		.card .title {
-			height: 4.375rem;
-			padding: 1.25rem;
-		}
-	}
-
 	.card .title > p {
 		font-size: 1.75rem;
 		letter-spacing: var(--tracking-tighter);
-	}
-
-	@media (width <= 48rem) {
-		.card .title p {
-			font-size: var(--text-xxl);
-		}
 	}
 
 	div :global(.arrow-icon) {
@@ -325,8 +301,42 @@
 	}
 
 	@media (width <= 48rem) {
+		.marquee-container {
+			margin-inline: 1.5rem;
+			padding-top: 3.75rem;
+			padding-bottom: 4.1875rem;
+		}
+
+		.marquee {
+			grid-auto-columns: min(100%, 30rem);
+			animation-duration: 10s;
+			gap: 1.5rem;
+		}
+
+		.card .image-container {
+			height: calc(100% - 4.375rem);
+		}
+
+		.card .title {
+			height: 4.375rem;
+			padding: 1.25rem;
+		}
+
+		.card .title p {
+			font-size: var(--text-xxl);
+		}
+
 		div :global(.arrow-icon) {
 			font-size: 1.875rem;
+		}
+	}
+
+	@keyframes marquee-left {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-100%);
 		}
 	}
 

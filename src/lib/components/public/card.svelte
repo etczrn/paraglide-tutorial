@@ -6,7 +6,9 @@
 </script>
 
 <article class="card">
-	<img src={thumbnail} alt={title} class="card-image" />
+	<div class="image-container">
+		<img src={thumbnail} alt={title} class="image" />
+	</div>
 	<p class="category">Research</p>
 	{#if tags.length > 0}
 		<div class="tags">
@@ -34,11 +36,22 @@
 		gap: 0.875rem;
 	}
 
-	.card-image {
+	.card:hover .image {
+		transition: all 0.5s ease;
+		transform: scale(1.1);
+	}
+
+	.image-container {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		border-radius: 0.9375rem;
+		overflow: hidden;
+	}
+
+	.image {
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		object-fit: cover;
-		border-radius: 0.9375rem;
 	}
 
 	/* TODO: change category background color */
@@ -98,7 +111,7 @@
 			gap: 1rem;
 		}
 
-		.card-image {
+		.image {
 			border-radius: 0.625rem;
 		}
 
