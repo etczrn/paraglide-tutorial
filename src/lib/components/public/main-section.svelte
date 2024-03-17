@@ -39,7 +39,7 @@
 	}
 </script>
 
-<section class="research">
+<section>
 	<h1>{title}</h1>
 	<h2>{subtitle}</h2>
 	<MainLink href={link}>
@@ -77,7 +77,7 @@
 </section>
 
 <style>
-	.research {
+	section {
 		max-width: var(--max-w-screen-3xl);
 		display: grid;
 		margin: 0 auto;
@@ -90,7 +90,7 @@
 	}
 
 	@media (width <= 48rem) {
-		.research {
+		section {
 			grid-template-columns: 1fr;
 			grid-template-areas:
 				'title title'
@@ -102,7 +102,7 @@
 		}
 	}
 
-	.research > h1 {
+	h1 {
 		grid-area: title;
 		font-size: var(--text-7xl);
 		margin-right: 2.25rem;
@@ -110,14 +110,14 @@
 	}
 
 	@media (width <= 48rem) {
-		.research > h1 {
+		h1 {
 			font-size: var(--text-6xl);
 			margin: 0;
 			margin-bottom: 3.125rem;
 		}
 	}
 
-	.research > h2 {
+	h2 {
 		grid-area: sub-title;
 		font-size: var(--text-5xl);
 		align-self: center;
@@ -125,13 +125,13 @@
 	}
 
 	@media (width <= 48rem) {
-		.research > h2 {
+		h2 {
 			font-size: var(--text-3xl);
 			margin-bottom: 1rem;
 		}
 	}
 
-	.research .carousel-buttons {
+	.carousel-buttons {
 		grid-area: carousel-buttons;
 		display: flex;
 		justify-self: end;
@@ -140,24 +140,24 @@
 	}
 
 	@media (width <= 48rem) {
-		.research .carousel-buttons {
+		.carousel-buttons {
 			height: 1.875rem;
 			margin-bottom: 1.1875rem;
 		}
 	}
 
-	.research .carousel-buttons button {
+	.carousel-buttons button {
 		width: 2.5rem;
 		aspect-ratio: 1;
 	}
 
 	@media (width <= 48rem) {
-		.research .carousel-buttons button {
+		.carousel-buttons button {
 			width: 1.875rem;
 		}
 	}
 
-	.research .carousel {
+	.carousel {
 		--max-size: 22.5rem; /* 360px */
 		--min-size: 21.24rem /* 340px */;
 		grid-area: carousel;
@@ -165,7 +165,7 @@
 	}
 
 	@media (width <= 48rem) {
-		.research .carousel {
+		.carousel {
 			margin-top: 3.75rem;
 		}
 	}
