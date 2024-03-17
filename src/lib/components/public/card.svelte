@@ -34,30 +34,19 @@
 		gap: 0.875rem;
 	}
 
-	@media (max-width: 48rem) {
-		.card {
-			gap: 1rem;
-		}
-	}
-
-	.card .card-image {
+	.card-image {
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		object-fit: cover;
 		border-radius: 0.9375rem;
 	}
 
-	@media (max-width: 48rem) {
-		.card .card-image {
-			border-radius: 0.625rem;
-		}
-	}
-
-	.card .category {
+	/* TODO: change category background color */
+	.category {
 		padding: 0.375rem 0.625rem;
 		border-radius: 0.375rem;
 		/* background-color: var(--color-secondary); */
-		background: rgba(241, 241, 241, 0.2);
+		/* background: rgba(241, 241, 241, 0.2); */
 		color: var(--color-white);
 		opacity: 0.2;
 		max-width: max-content;
@@ -68,19 +57,13 @@
 		backdrop-filter: blur(0.25rem);
 	}
 
-	.card .tags {
+	.tags {
 		display: flex;
 		gap: 0.5rem;
 		flex-wrap: wrap;
 	}
 
-	@media (max-width: 48rem) {
-		.card .tags {
-			gap: 0.375rem;
-		}
-	}
-
-	.card .tags .tag {
+	.tag {
 		padding: 0.1875rem 0.376rem 0.25rem 0.376rem;
 		background-color: var(--color-accent);
 		border-radius: 0.375rem;
@@ -90,43 +73,51 @@
 		min-width: fit-content;
 	}
 
-	@media (max-width: 48rem) {
-		.card .tags .tag {
-			font-size: var(--text-sm);
-			padding: 0.125rem 0.3125rem 0.1875rem 0.3125rem;
-		}
-	}
-
-	.card .title {
+	.title {
 		font-size: var(--text-2xl);
 		padding-right: 1rem;
 		letter-spacing: var(--tracking-tighter);
 	}
 
-	@media (max-width: 48rem) {
-		.card .title {
-			font-size: var(--text-xl);
-			padding-right: 0;
-		}
-	}
-
-	.card .description {
+	.description {
 		font-size: var(--text-md);
 		letter-spacing: var(--tracking-tighter);
 		opacity: 0.5;
 		font-weight: var(--font-medium);
 	}
 
-	@media (max-width: 48rem) {
-		.card .description {
-			font-size: var(--text-sm);
-		}
-	}
-
-	.card .posted-on {
+	.posted-on {
 		font-size: var(--text-md);
 		font-weight: var(--font-medium);
 		opacity: 0.3;
 		margin-top: calc(2.1875rem - 1rem);
+	}
+
+	@media (max-width: 48rem) {
+		.card {
+			gap: 1rem;
+		}
+
+		.card-image {
+			border-radius: 0.625rem;
+		}
+
+		.tags {
+			gap: 0.375rem;
+		}
+
+		.tag {
+			font-size: var(--text-sm);
+			padding: 0.125rem 0.3125rem 0.1875rem 0.3125rem;
+		}
+
+		.title {
+			font-size: var(--text-xl);
+			padding-right: 0;
+		}
+
+		.description {
+			font-size: var(--text-sm);
+		}
 	}
 </style>
