@@ -16,6 +16,7 @@
 
 <!-- hero -->
 <section class="hero"></section>
+
 <!-- insights -->
 <MainSection
 	title="Insights"
@@ -25,6 +26,7 @@
 	articles={insights}
 />
 <div class="space"></div>
+
 <!-- resaech -->
 <MainSection
 	title="Research"
@@ -49,10 +51,11 @@
 			<p>Our goal is a just and equitable world where both people and planet thrive.</p>
 		</svelte:fragment>
 	</MainSplit>
-	<div class="overlay-image">
-		<enhanced:img src={whoWeAre} alt="image for who we are section" />
+	<div class="overlay-container">
+		<enhanced:img src={whoWeAre} alt="image for who we are section" class="overlay-image" />
 	</div>
 </section>
+
 <!-- what we do -->
 <section class="what-we-do">
 	<MainSplit color="white" ch="30ch">
@@ -65,8 +68,12 @@
 			<MainLink href="/what-we-do">See More</MainLink>
 		</svelte:fragment>
 	</MainSplit>
-	<div class="background-image">
-		<enhanced:img src={whatWeDo} alt="background image for what we do section" />
+	<div class="background-container">
+		<enhanced:img
+			src={whatWeDo}
+			alt="background image for what we do section"
+			class="background-image"
+		/>
 	</div>
 	<div class="marquee-container">
 		<div class="marquee">
@@ -85,6 +92,7 @@
 		</div>
 	</div>
 </section>
+
 <!-- our people -->
 <section class="our-people">
 	<MainSplit ch="38ch">
@@ -97,8 +105,12 @@
 			<MainLink href="people">See More</MainLink>
 		</svelte:fragment>
 	</MainSplit>
-	<div class="background-image">
-		<enhanced:img src={ourPeople} alt="background image for our people section" />
+	<div class="background-container">
+		<enhanced:img
+			src={ourPeople}
+			alt="background image for our people section"
+			class="background-image"
+		/>
 		<!-- our people svg animation -->
 		<div class="circle-svg">
 			<svg
@@ -132,6 +144,7 @@
 		</div>
 	</div>
 </section>
+
 <!-- newsletter -->
 <Newsletter />
 
@@ -159,19 +172,19 @@
 		}
 	}
 
-	.who-we-are .overlay-image {
+	.who-we-are .overlay-container {
 		padding-inline: 2.25rem;
 		position: absolute;
 	}
 
 	@media (width <= 48rem) {
-		.who-we-are .overlay-image {
+		.who-we-are .overlay-container {
 			padding-inline: 1.5rem;
 			aspect-ratio: 16 / 9;
 		}
 	}
 
-	.who-we-are .overlay-image img {
+	.who-we-are .overlay-container .overlay-image {
 		object-fit: contain;
 		height: 100%;
 		max-height: 27.5rem;
@@ -179,7 +192,7 @@
 	}
 
 	@media (width <= 48rem) {
-		.who-we-are .overlay-image img {
+		.who-we-are .overlay-container .overlay-image {
 			width: 100%;
 			object-fit: cover;
 			max-height: 15rem;
@@ -191,7 +204,7 @@
 		position: relative;
 	}
 
-	.what-we-do .background-image img {
+	.what-we-do .background-container .background-image {
 		filter: brightness(0.7);
 	}
 
@@ -201,7 +214,7 @@
 		}
 	}
 
-	.background-image img {
+	.background-container .background-image {
 		position: absolute;
 		width: 100%;
 		height: 100%;
