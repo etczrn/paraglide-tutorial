@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import background from '$lib/assets/public/what-we-do.png?enhanced';
 	import MainLink from '$lib/components/public/main-link.svelte';
 	import Newsletter from '$lib/components/public/newsletter.svelte';
@@ -7,6 +8,7 @@
 
 	export let data;
 	const { jobs } = data;
+	const current = $page.url.pathname;
 </script>
 
 <!-- TODO: add hash link -->
@@ -45,7 +47,9 @@
 					<p>{body}</p>
 				</div>
 				<div class="link">
-					<MainLink href={`${id}`} size="small" arrowSize={24}><span>View More</span></MainLink>
+					<MainLink href={`${current}/${id}`} size="small" arrowSize={24}>
+						<span>View More</span>
+					</MainLink>
 				</div>
 				<div class="image">
 					<img src={thumbnail} alt={title} />
