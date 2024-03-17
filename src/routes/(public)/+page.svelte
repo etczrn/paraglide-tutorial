@@ -16,6 +16,15 @@
 
 <!-- hero -->
 <section class="hero"></section>
+<!-- insights -->
+<MainSection
+	title="Insights"
+	subtitle="New Insights"
+	link="/insights"
+	linkText="See all insights"
+	articles={insights}
+/>
+<div class="space"></div>
 <!-- resaech -->
 <MainSection
 	title="Research"
@@ -27,15 +36,7 @@
 <div class="space">
 	<hr />
 </div>
-<!-- insights -->
-<MainSection
-	title="Insights"
-	subtitle="New Insights"
-	link="/insights"
-	linkText="See all insights"
-	articles={insights}
-/>
-<div class="space"></div>
+
 <!-- who we are -->
 <section class="who-we-are">
 	<MainSplit>

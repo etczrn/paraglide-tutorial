@@ -33,7 +33,7 @@
 	}
 
 	.newsletter {
-		max-width: var(--max-w-screen-2xl);
+		max-width: var(--max-w-screen-3xl);
 		height: 100%;
 		margin-inline: auto;
 		padding: 1.875rem 2.25rem;

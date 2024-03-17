@@ -14,7 +14,7 @@
 
 <style>
 	.split-layout {
-		max-width: var(--max-w-screen-2xl);
+		max-width: var(--max-w-screen-3xl);
 		margin-inline: auto;
 		display: grid;
 		grid-template-columns: minmax(22.5rem, 1fr) 1fr;

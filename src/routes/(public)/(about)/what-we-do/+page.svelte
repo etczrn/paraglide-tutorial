@@ -120,7 +120,7 @@
 	.intro-section {
 		padding: 2.25rem;
 		margin-inline: auto;
-		max-width: var(--max-w-screen-2xl);
+		max-width: var(--max-w-screen-3xl);
 		display: grid;
 		grid-template-columns: minmax(max-content, 2.5fr) 7.5fr;
 		grid-template-areas: 'table-of-contents main';

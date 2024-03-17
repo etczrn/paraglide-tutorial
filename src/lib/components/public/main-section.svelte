@@ -78,7 +78,7 @@
 
 <style>
 	.research {
-		max-width: var(--max-w-screen-2xl);
+		max-width: var(--max-w-screen-3xl);
 		display: grid;
 		margin: 0 auto;
 		padding: 1.75em 2.25rem;
