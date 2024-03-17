@@ -52,6 +52,7 @@
 		--tracking-tight: -0.03rem;
 		--max-w-prose: 65ch;
 		--max-w-ch-sm: 45ch;
+		--max-w-ch-xs: 30ch;
 		--max-w-screen-md: 48rem; /* 768px */
 		--max-w-screen-2xl: 96rem; /* 1536px */
 		--max-w-screen-3xl: 120rem /* 1920px */;

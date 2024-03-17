@@ -1,8 +1,10 @@
 <script lang="ts">
 	import background from '$lib/assets/public/what-we-do.png?enhanced';
+	import Link from '$lib/components/public/link.svelte';
 	import MainLink from '$lib/components/public/main-link.svelte';
 	import Newsletter from '$lib/components/public/newsletter.svelte';
 	import LeftBottomArrow from '$lib/components/public/what-we-do/left-arrow-cirlce.svelte';
+	import RightArrowCircle from '$lib/components/public/what-we-do/right-arrow-circle.svelte';
 	export let data;
 	const { jobs } = data;
 </script>
@@ -51,6 +53,17 @@
 	</div>
 </section>
 <Newsletter />
+<section class="other-links">
+	<h2 class="description">If you want to learn more about Solutions for Our Climate</h2>
+	<ul class="links">
+		<Link href="/who-we-are">
+			<li>Who we are <RightArrowCircle /></li>
+		</Link>
+		<Link href="/people">
+			<li>People <RightArrowCircle /></li>
+		</Link>
+	</ul>
+</section>
 
 <style>
 	.nav-section {
@@ -204,6 +217,39 @@
 		height: 100%;
 		object-fit: cover;
 		border-radius: 0.9375rem;
+	}
+
+	.other-links {
+		padding: 1.5rem 2.25rem;
+		max-width: var(--max-w-screen-4xl);
+		margin-inline: auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 'description links';
+		min-height: 34.375rem;
+	}
+
+	.other-links .description {
+		grid-area: description;
+		font-size: 2.25rem;
+		letter-spacing: var(--tracking-tighter);
+		line-height: 1.45;
+		max-width: var(--max-w-ch-xs);
+		margin-right: 1rem;
+	}
+
+	.other-links .links {
+		grid-area: links;
+		font-size: 3.75rem;
+		letter-spacing: var(--tracking-tighter);
+	}
+
+	.other-links .links li {
+		padding-block: 1rem;
+		border-bottom: 0.0625rem var(--color-gray-light) solid;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	@container main-container (max-width: 37.5rem) {
