@@ -227,7 +227,6 @@
 	}
 
 	.marquee-container {
-		margin-inline: 2.25rem;
 		padding-top: 10rem;
 		padding-bottom: 11.75rem;
 		overflow: hidden;
@@ -302,13 +301,12 @@
 
 	@media (width <= 48rem) {
 		.marquee-container {
-			margin-inline: 1.5rem;
 			padding-top: 3.75rem;
 			padding-bottom: 4.1875rem;
 		}
 
 		.marquee {
-			grid-auto-columns: min(100%, 30rem);
+			grid-auto-columns: min(var(--max-w-ch-sm), calc(100vw - 1.5rem - 1.5rem));
 			animation-duration: 10s;
 			gap: 1.5rem;
 		}
