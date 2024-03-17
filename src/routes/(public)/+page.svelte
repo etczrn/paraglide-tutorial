@@ -136,6 +136,11 @@
 <Newsletter />
 
 <style>
+	.hero {
+		width: 100%;
+		min-height: 100vh;
+	}
+
 	.who-we-are {
 		background-color: var(--color-gray-light);
 		position: relative;

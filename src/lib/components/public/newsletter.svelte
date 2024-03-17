@@ -97,7 +97,6 @@
 		grid-area: email;
 
 		font-size: var(--text-2xl);
-		max-width: 30rem;
 		padding-inline: 1.25rem;
 		border: var(--color-white) 1px solid;
 		background: transparent;
