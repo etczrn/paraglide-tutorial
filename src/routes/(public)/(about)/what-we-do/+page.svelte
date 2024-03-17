@@ -134,6 +134,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.9375rem;
+		position: sticky;
+		top: 5.625rem;
 	}
 
 	.intro-section .main {
