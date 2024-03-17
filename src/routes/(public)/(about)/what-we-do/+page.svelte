@@ -9,6 +9,7 @@
 	const { jobs } = data;
 </script>
 
+<!-- TODO: add hash link -->
 <section class="nav-section">
 	<enhanced:img src={background} alt="what we do background image" class="background" />
 	<nav>
@@ -24,6 +25,7 @@
 		</ul>
 	</nav>
 </section>
+<!-- TODO: add intersection observer -->
 <section class="intro-section">
 	<aside>
 		<ul>
